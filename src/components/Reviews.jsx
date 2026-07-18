@@ -10,7 +10,7 @@ import 'swiper/css/navigation';
 
 function StarRating({ rating }) {
   return (
-    <div className="review-stars" aria-label={`${rating} out of 5 stars`}>
+    <div className="review-stars" role="img" aria-label={`${rating} out of 5 stars`}>
       {[1, 2, 3, 4, 5].map((star) => (
         <span key={star} className={`star ${star <= rating ? '' : 'empty'}`}>
           {star <= rating ? <FaStar /> : <FaRegStar />}
