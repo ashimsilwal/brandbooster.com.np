@@ -37,7 +37,7 @@ export default function Navbar() {
             <img
               src="https://brandboosternepal.com/images/13fe9d84310e77f13a6d184dbf1232f3.webp"
               alt="Brand Booster Nepal Logo"
-              width="140"
+              width="50"
               height="40"
               loading="eager"
             />

@@ -39,7 +39,7 @@ export default function Footer() {
               <img
                 src="https://brandboosternepal.com/images/13fe9d84310e77f13a6d184dbf1232f3.webp"
                 alt="Brand Booster Nepal"
-                width="160"
+                width="56"
                 height="45"
                 loading="lazy"
               />
