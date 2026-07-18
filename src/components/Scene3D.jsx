@@ -170,7 +170,12 @@ export default function Scene3D() {
       gl={{
         antialias: true,
         alpha: true,
-        powerPreference: 'high-performance',
+      }}
+      onCreated={({ gl }) => {
+        gl.domElement.addEventListener('webglcontextlost', (event) => {
+          event.preventDefault();
+          console.warn('WebGL context lost. Restoring context automatically...');
+        }, false);
       }}
       style={{ background: 'transparent' }}
     >
