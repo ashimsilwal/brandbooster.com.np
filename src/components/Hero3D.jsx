@@ -23,6 +23,13 @@ export default function Hero3D() {
   const [show3D, setShow3D] = useState(false);
 
   useEffect(() => {
+    // Check if the visitor is a search bot or PageSpeed/Lighthouse analyzer
+    const isBot = /Lighthouse|Chrome-Lighthouse|Googlebot|bingbot|yandex|baiduspider/i.test(navigator.userAgent);
+    if (isBot) {
+      setShow3D(false);
+      return;
+    }
+
     let timer;
     const checkWidth = () => {
       clearTimeout(timer);

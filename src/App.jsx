@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 import Hero3D from './components/Hero3D';
 import Services from './components/Services';
 import WhatsAppButton from './components/WhatsAppButton';
+import LazySection from './components/LazySection';
 
 const WhyChooseUs = lazy(() => import('./components/WhyChooseUs'));
 const HowItWorks = lazy(() => import('./components/HowItWorks'));
@@ -250,15 +251,25 @@ export default function App() {
         <Hero3D />
         <Services />
         <Suspense fallback={null}>
-          <WhyChooseUs />
-          <HowItWorks />
-          <Reviews />
-          <FAQ />
+          <LazySection minHeight="400px">
+            <WhyChooseUs />
+          </LazySection>
+          <LazySection minHeight="400px">
+            <HowItWorks />
+          </LazySection>
+          <LazySection minHeight="400px">
+            <Reviews />
+          </LazySection>
+          <LazySection minHeight="400px">
+            <FAQ />
+          </LazySection>
         </Suspense>
       </main>
 
       <Suspense fallback={null}>
-        <Footer />
+        <LazySection minHeight="300px">
+          <Footer />
+        </LazySection>
       </Suspense>
       <WhatsAppButton />
     </HelmetProvider>
