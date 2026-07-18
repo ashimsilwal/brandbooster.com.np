@@ -106,7 +106,7 @@ export default function Navbar() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  {link.icon || <FaSignInAlt />}
+                  {link.icon && <span>{link.icon}</span>}
                   {link.label}
                 </a>
               ))}

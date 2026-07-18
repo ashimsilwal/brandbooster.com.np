@@ -303,6 +303,13 @@ button {
   z-index: 1001;
 }
 
+.navbar-cta .btn {
+  padding: 8px 18px !important;
+  font-size: 0.85rem !important;
+  border-radius: 8px !important;
+  font-weight: 600 !important;
+}
+
 .hamburger {
   display: none;
   flex-direction: column;
@@ -400,6 +407,12 @@ button {
   display: flex;
   flex-direction: column;
   gap: 12px;
+}
+
+.mobile-menu .btn {
+  padding: 10px 20px !important;
+  font-size: 0.9rem !important;
+  border-radius: 8px !important;
 }
 
 /* ─── Hero ─── */
