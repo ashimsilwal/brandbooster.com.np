@@ -1,7 +1,8 @@
-import { Suspense, useEffect, useState } from 'react';
+import { Suspense, useEffect, useState, lazy } from 'react';
 import { motion } from 'framer-motion';
 import { FaRocket, FaArrowRight, FaChevronDown, FaUsers, FaCogs, FaHeadset, FaStar } from 'react-icons/fa';
-import Scene3D from './Scene3D';
+
+const Scene3D = lazy(() => import('./Scene3D'));
 
 const stats = [
   { value: '10,000+', label: 'Happy Customers', icon: <FaUsers /> },

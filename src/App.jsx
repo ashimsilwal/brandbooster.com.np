@@ -1,13 +1,15 @@
+import { Suspense, lazy } from 'react';
 import { HelmetProvider, Helmet } from 'react-helmet-async';
 import Navbar from './components/Navbar';
 import Hero3D from './components/Hero3D';
 import Services from './components/Services';
-import WhyChooseUs from './components/WhyChooseUs';
-import HowItWorks from './components/HowItWorks';
-import Reviews from './components/Reviews';
-import FAQ from './components/FAQ';
-import Footer from './components/Footer';
 import WhatsAppButton from './components/WhatsAppButton';
+
+const WhyChooseUs = lazy(() => import('./components/WhyChooseUs'));
+const HowItWorks = lazy(() => import('./components/HowItWorks'));
+const Reviews = lazy(() => import('./components/Reviews'));
+const FAQ = lazy(() => import('./components/FAQ'));
+const Footer = lazy(() => import('./components/Footer'));
 
 const structuredData = {
   '@context': 'https://schema.org',
@@ -247,13 +249,17 @@ export default function App() {
       <main id="main-content">
         <Hero3D />
         <Services />
-        <WhyChooseUs />
-        <HowItWorks />
-        <Reviews />
-        <FAQ />
+        <Suspense fallback={null}>
+          <WhyChooseUs />
+          <HowItWorks />
+          <Reviews />
+          <FAQ />
+        </Suspense>
       </main>
 
-      <Footer />
+      <Suspense fallback={null}>
+        <Footer />
+      </Suspense>
       <WhatsAppButton />
     </HelmetProvider>
   );
