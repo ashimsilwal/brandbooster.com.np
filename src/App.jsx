@@ -239,7 +239,7 @@ export default function App() {
         <script type="application/ld+json">{JSON.stringify(faqStructuredData)}</script>
 
         {/* Favicon */}
-        <link rel="icon" href="https://brandboosternepal.com/images/ce09b127d48f83868a45645e246d3b52f4bdecbe.png" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
       </Helmet>
 
       <Navbar />
