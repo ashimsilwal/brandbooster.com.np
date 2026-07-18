@@ -9,6 +9,9 @@ export default defineConfig({
     open: true,
   },
   build: {
+    modulePreload: {
+      resolveDependencies: () => []
+    },
     rollupOptions: {
       output: {
         manualChunks(id) {
