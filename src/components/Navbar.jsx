@@ -35,7 +35,7 @@ export default function Navbar() {
         <nav className="navbar-inner" aria-label="Main navigation">
           <a href="https://brandboosternepal.com" className="navbar-logo" title="Brand Booster Nepal — Nepal's #1 SMM Panel">
             <img
-              src="https://brandboosternepal.com/images/13fe9d84310e77f13a6d184dbf1232f3.webp"
+              src="/logo.webp"
               alt="Brand Booster Nepal Logo"
               width="50"
               height="40"

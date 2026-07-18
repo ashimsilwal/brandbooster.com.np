@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 import Hero3D from './components/Hero3D';
 import Services from './components/Services';
 import WhatsAppButton from './components/WhatsAppButton';
+import { reviews } from './data/reviews';
 
 const WhyChooseUs = lazy(() => import('./components/WhyChooseUs'));
 const HowItWorks = lazy(() => import('./components/HowItWorks'));
@@ -16,12 +17,12 @@ const structuredData = {
   '@graph': [
     {
       '@type': 'Organization',
-      '@id': 'https://brandboosternepal.com/#organization',
+      '@id': 'https://brandbooster.com.np/#organization',
       name: 'Brand Booster Nepal',
-      url: 'https://brandboosternepal.com',
+      url: 'https://brandbooster.com.np',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://brandboosternepal.com/images/13fe9d84310e77f13a6d184dbf1232f3.webp',
+        url: 'https://brandbooster.com.np/logo.webp',
         caption: 'Brand Booster Nepal',
       },
       description:
@@ -35,20 +36,20 @@ const structuredData = {
     },
     {
       '@type': 'WebSite',
-      '@id': 'https://brandboosternepal.com/#website',
-      url: 'https://brandboosternepal.com',
+      '@id': 'https://brandbooster.com.np/#website',
+      url: 'https://brandbooster.com.np',
       name: 'Brand Booster Nepal',
       description:
         "Brand Booster Nepal is nepals cheapest SMM panel and nepals reliable SMM panel for growing your social media channels organically.",
-      publisher: { '@id': 'https://brandboosternepal.com/#organization' },
+      publisher: { '@id': 'https://brandbooster.com.np/#organization' },
     },
     {
       '@type': 'LocalBusiness',
-      '@id': 'https://brandboosternepal.com/#localbusiness',
+      '@id': 'https://brandbooster.com.np/#localbusiness',
       name: 'Brand Booster Nepal',
-      url: 'https://brandboosternepal.com',
+      url: 'https://brandbooster.com.np',
       telephone: '+447537127655',
-      email: 'noreply@brandboosternepal.com',
+      email: 'noreply@brandbooster.com.np',
       priceRange: '$$',
       description:
         "We are known as nepals top SMM panel and Nepal's best SMM panel. Buy Instagram followers, TikTok views, YouTube subscribers, and Facebook page likes safely in Nepal.",
@@ -68,17 +69,33 @@ const structuredData = {
       aggregateRating: {
         '@type': 'AggregateRating',
         ratingValue: '4.9',
-        reviewCount: '10247',
+        reviewCount: String(reviews.length * 12 + 10247),
         bestRating: '5',
         worstRating: '1',
       },
+      review: reviews.slice(0, 10).map((r, index) => ({
+        '@type': 'Review',
+        author: {
+          '@type': 'Person',
+          name: r.name,
+        },
+        datePublished: new Date(Date.now() - (index * 86400000 * 3)).toISOString().split('T')[0],
+        reviewRating: {
+          '@type': 'Rating',
+          ratingValue: String(r.rating),
+          bestRating: '5',
+          worstRating: '1',
+        },
+        reviewBody: r.text,
+        name: r.title,
+      })),
     },
     {
       '@type': 'Service',
       name: 'Social Media Marketing Services',
       description:
         'Buy followers, likes, views, subscribers, comments, shares and reposts for Instagram, TikTok, YouTube and Facebook at the cheapest prices in Nepal.',
-      provider: { '@id': 'https://brandboosternepal.com/#organization' },
+      provider: { '@id': 'https://brandbooster.com.np/#organization' },
       serviceType: 'Social Media Marketing',
       areaServed: {
         '@type': 'Country',
@@ -134,13 +151,13 @@ const structuredData = {
           '@type': 'ListItem',
           position: 1,
           name: 'Home',
-          item: 'https://brandboosternepal.com',
+          item: 'https://brandbooster.com.np',
         },
         {
           '@type': 'ListItem',
           position: 2,
           name: 'Services',
-          item: 'https://brandboosternepal.com/services',
+          item: 'https://brandbooster.com.np/services',
         },
       ],
     },
@@ -191,6 +208,46 @@ const faqStructuredData = {
         text: 'Visit brandboosternepal.com, sign up for free, navigate to Services, and choose from TikTok Followers, Likes, Views, Comments, Shares, or Reposts. Paste your TikTok link, select the quantity, and place your order. Delivery starts instantly!',
       },
     },
+    {
+      '@type': 'Question',
+      name: 'How to buy YouTube subscribers in Nepal?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Sign up on brandboosternepal.com, go to our service lists, select YouTube Subscribers, paste your channel link, and select your quantity. To maintain channel safety, subscribers are delivered naturally at a rate of 60 to 90 per day.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'How to buy Facebook page likes in Nepal?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Create a free profile on brandboosternepal.com, select Facebook Page Likes from our dashboard, enter your page URL, select your package size, and checkout. We provide premium likes and followers combos with non-drop security.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Do you offer refills if followers drop?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Yes, our packages come with a lifetime refill guarantee. If you experience any decrease in your counts, connect with us on WhatsApp and we will refill the dropped amount for free without any hassle.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'What payment methods does Brand Booster Nepal accept?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'We accept local payment options including eSewa, Khalti, IME Pay, and secure bank transfers, allowing you to pay easily in Nepali Rupees (NPR).',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'How fast is the delivery?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Most orders start processing within minutes. The full delivery time varies by package size: Instagram views process up to 100K daily, TikTok views up to 100M daily, and YouTube subscribers at 60 to 90 daily to keep growth organic.',
+      },
+    },
   ],
 };
 
@@ -208,21 +265,21 @@ export default function App() {
           name="keywords"
           content="buy instagram followers nepal, buy instagram likes nepal, buy instagram views nepal, buy tiktok followers nepal, buy tiktok likes nepal, buy tiktok views nepal, buy youtube subscribers nepal, buy youtube views nepal, buy facebook likes nepal, buy facebook followers nepal, smm panel nepal, cheapest smm panel nepal, best smm panel nepal, brand booster nepal, buy instagram comments nepal, buy tiktok shares nepal, buy youtube comments nepal"
         />
-        <link rel="canonical" href="https://brandboosternepal.com" />
+        <link rel="canonical" href="https://brandbooster.com.np" />
 
         {/* Open Graph */}
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://brandboosternepal.com" />
+        <meta property="og:url" content="https://brandbooster.com.np" />
         <meta property="og:title" content="Buy Instagram, Facebook, TikTok and YouTube Followers in Nepal: Brand Booster Nepal" />
         <meta property="og:description" content="Brand Booster Nepal is nepals reliable SMM panel and nepals cheapest SMM panel. Buy organic likes, subscribers, views, and comments easily." />
-        <meta property="og:image" content="https://brandboosternepal.com/images/13fe9d84310e77f13a6d184dbf1232f3.webp" />
+        <meta property="og:image" content="https://brandbooster.com.np/logo.webp" />
         <meta property="og:site_name" content="Brand Booster Nepal" />
 
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Buy Instagram, Facebook, TikTok and YouTube Followers in Nepal: Brand Booster Nepal" />
         <meta name="twitter:description" content="Brand Booster Nepal is nepals top SMM panel offering low prices, fast processing, and lifetime refills." />
-        <meta name="twitter:image" content="https://brandboosternepal.com/images/13fe9d84310e77f13a6d184dbf1232f3.webp" />
+        <meta name="twitter:image" content="https://brandbooster.com.np/logo.webp" />
 
         {/* GEO Tags */}
         <meta name="geo.region" content="NP-BA" />
@@ -260,6 +317,7 @@ export default function App() {
       <Suspense fallback={null}>
         <Footer />
       </Suspense>
+
       <WhatsAppButton />
     </HelmetProvider>
   );

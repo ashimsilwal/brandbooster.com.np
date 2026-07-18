@@ -37,7 +37,7 @@ export default function Footer() {
           <div>
             <a href="https://brandboosternepal.com" className="navbar-logo" style={{ marginBottom: 16, display: 'inline-flex' }}>
               <img
-                src="https://brandboosternepal.com/images/13fe9d84310e77f13a6d184dbf1232f3.webp"
+                src="/logo.webp"
                 alt="Brand Booster Nepal"
                 width="88"
                 height="70"
