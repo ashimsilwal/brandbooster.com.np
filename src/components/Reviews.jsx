@@ -57,7 +57,7 @@ function ReviewCard({ review }) {
 
       <StarRating rating={review.rating} />
 
-      <h4 className="review-title">{review.title}</h4>
+      <h3 className="review-title">{review.title}</h3>
       <p className="review-text">
         <FaQuoteLeft style={{ opacity: 0.15, marginRight: 6, fontSize: '0.8em' }} />
         {review.text}
