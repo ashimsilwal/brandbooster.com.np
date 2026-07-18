@@ -112,6 +112,7 @@ export default function Reviews() {
             }}
             pagination={{
               clickable: true,
+              dynamicBullets: true,
             }}
             breakpoints={{
               480: { slidesPerView: 1, spaceBetween: 16 },

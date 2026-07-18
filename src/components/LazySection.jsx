@@ -28,9 +28,9 @@ export default function LazySection({ children, minHeight = '200px' }) {
     <div
       ref={ref}
       style={{
-        minHeight: isIntersecting ? 'auto' : minHeight,
+        minHeight: minHeight,
         width: '100%',
-        display: isIntersecting ? 'contents' : 'block'
+        display: 'block'
       }}
     >
       {isIntersecting ? children : null}
