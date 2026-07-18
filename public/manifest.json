@@ -1,0 +1,16 @@
+{
+  "short_name": "BrandBooster",
+  "name": "Brand Booster Nepal - SMM Panel",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "type": "image/svg+xml",
+      "sizes": "any"
+    }
+  ],
+  "start_url": "/",
+  "background_color": "#0a0a0f",
+  "theme_color": "#0a0a0f",
+  "display": "standalone",
+  "orientation": "portrait"
+}

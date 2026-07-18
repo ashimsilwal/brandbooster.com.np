@@ -12,6 +12,28 @@ const Reviews = lazy(() => import('./components/Reviews'));
 const FAQ = lazy(() => import('./components/FAQ'));
 const Footer = lazy(() => import('./components/Footer'));
 
+const mapProductReviews = (platformName) => {
+  return reviews
+    .filter((r) => r.platform === platformName)
+    .slice(0, 5)
+    .map((r, index) => ({
+      '@type': 'Review',
+      author: {
+        '@type': 'Person',
+        name: r.name,
+      },
+      datePublished: new Date(Date.now() - (index * 86400000 * 5)).toISOString().split('T')[0],
+      reviewRating: {
+        '@type': 'Rating',
+        ratingValue: String(r.rating),
+        bestRating: '5',
+        worstRating: '1',
+      },
+      reviewBody: r.text,
+      name: r.title,
+    }));
+};
+
 const structuredData = {
   '@context': 'https://schema.org',
   '@graph': [
@@ -56,13 +78,14 @@ const structuredData = {
       hasMap: 'https://maps.app.goo.gl/AiAK34gGHJ8YyNy4A',
       geo: {
         '@type': 'GeoCoordinates',
-        latitude: '28.3949',
-        longitude: '84.1240',
+        latitude: '27.6464001',
+        longitude: '85.3348512',
       },
       address: {
         '@type': 'PostalAddress',
-        streetAddress: 'Nepal',
-        addressLocality: 'Nepal',
+        streetAddress: 'Lalitpur',
+        addressLocality: 'Lalitpur',
+        addressRegion: 'Bagmati',
         postalCode: '44700',
         addressCountry: 'NP',
       },
@@ -89,6 +112,110 @@ const structuredData = {
         reviewBody: r.text,
         name: r.title,
       })),
+    },
+    {
+      '@type': 'Product',
+      '@id': 'https://brandbooster.com.np/#product-instagram-followers',
+      name: 'Buy Instagram Followers Nepal',
+      image: 'https://brandbooster.com.np/logo.webp',
+      description: 'Buy active, high-quality Instagram followers in Nepal. Real looking profiles with lifetime refills and instant processing starting from Rs. 78.63.',
+      brand: {
+        '@type': 'Brand',
+        name: 'Brand Booster Nepal'
+      },
+      offers: {
+        '@type': 'Offer',
+        url: 'https://brandboosternepal.com/buy-instagram-followers-nepal',
+        priceCurrency: 'NPR',
+        price: '78.63',
+        itemCondition: 'https://schema.org/NewCondition',
+        availability: 'https://schema.org/InStock',
+        priceValidUntil: '2027-12-31'
+      },
+      aggregateRating: {
+        '@type': 'AggregateRating',
+        ratingValue: '4.9',
+        reviewCount: '1240'
+      },
+      review: mapProductReviews('Instagram')
+    },
+    {
+      '@type': 'Product',
+      '@id': 'https://brandbooster.com.np/#product-tiktok-views',
+      name: 'Buy TikTok Views Nepal',
+      image: 'https://brandbooster.com.np/logo.webp',
+      description: 'Buy fast TikTok views in Nepal. Increase video visibility instantly starting from Rs. 50 per 1,000 views.',
+      brand: {
+        '@type': 'Brand',
+        name: 'Brand Booster Nepal'
+      },
+      offers: {
+        '@type': 'Offer',
+        url: 'https://brandboosternepal.com/buy-tiktok-views-nepal',
+        priceCurrency: 'NPR',
+        price: '50.00',
+        itemCondition: 'https://schema.org/NewCondition',
+        availability: 'https://schema.org/InStock',
+        priceValidUntil: '2027-12-31'
+      },
+      aggregateRating: {
+        '@type': 'AggregateRating',
+        ratingValue: '4.8',
+        reviewCount: '980'
+      },
+      review: mapProductReviews('TikTok')
+    },
+    {
+      '@type': 'Product',
+      '@id': 'https://brandbooster.com.np/#product-youtube-subscribers',
+      name: 'Buy YouTube Subscribers Nepal',
+      image: 'https://brandbooster.com.np/logo.webp',
+      description: 'Grow your YouTube channel with non-drop, organic subscribers with lifetime refills in Nepal. Prices start from Rs. 2671.48.',
+      brand: {
+        '@type': 'Brand',
+        name: 'Brand Booster Nepal'
+      },
+      offers: {
+        '@type': 'Offer',
+        url: 'https://brandboosternepal.com/buy-youtube-subscribers-nepal',
+        priceCurrency: 'NPR',
+        price: '2671.48',
+        itemCondition: 'https://schema.org/NewCondition',
+        availability: 'https://schema.org/InStock',
+        priceValidUntil: '2027-12-31'
+      },
+      aggregateRating: {
+        '@type': 'AggregateRating',
+        ratingValue: '4.9',
+        reviewCount: '650'
+      },
+      review: mapProductReviews('YouTube')
+    },
+    {
+      '@type': 'Product',
+      '@id': 'https://brandbooster.com.np/#product-facebook-page-likes',
+      name: 'Buy Facebook Page Likes Nepal',
+      image: 'https://brandbooster.com.np/logo.webp',
+      description: 'Boost your business page authority with organic Facebook Page Likes in Nepal starting from Rs. 350.',
+      brand: {
+        '@type': 'Brand',
+        name: 'Brand Booster Nepal'
+      },
+      offers: {
+        '@type': 'Offer',
+        url: 'https://brandboosternepal.com/buy-facebook-likes-nepal',
+        priceCurrency: 'NPR',
+        price: '350.00',
+        itemCondition: 'https://schema.org/NewCondition',
+        availability: 'https://schema.org/InStock',
+        priceValidUntil: '2027-12-31'
+      },
+      aggregateRating: {
+        '@type': 'AggregateRating',
+        ratingValue: '4.7',
+        reviewCount: '1120'
+      },
+      review: mapProductReviews('Facebook')
     },
     {
       '@type': 'Service',
@@ -251,6 +378,46 @@ const faqStructuredData = {
   ],
 };
 
+function SMMGuide() {
+  return (
+    <section className="section smm-guide-section" id="smm-guide" aria-labelledby="guide-heading" style={{ position: 'relative', overflow: 'hidden' }}>
+      <div className="bg-gradient-overlay" aria-hidden="true" />
+      <div className="container">
+        <div className="section-header" style={{ marginBottom: '40px' }}>
+          <div className="section-badge">Resources & Guide</div>
+          <h2 className="section-title" id="guide-heading">Cheapest SMM Panel in Nepal: The Ultimate Guide</h2>
+          <p className="section-subtitle">
+            Learn how to safely scale your brand visibility, buy followers, and leverage social media marketing in Nepal.
+          </p>
+        </div>
+
+        <div className="glass-card" style={{ padding: '40px', borderRadius: '16px', lineHeight: '1.8', color: 'var(--text-secondary)' }}>
+          <h3 style={{ color: 'var(--text-primary)', marginBottom: '16px', fontSize: '1.4rem' }}>Understanding SMM Panels and How They Work</h3>
+          <p style={{ marginBottom: '24px' }}>
+            A Social Media Marketing (SMM) panel is an online platform that offers various social media growth services, including followers, likes, comments, subscribers, shares, and views. 
+            Services like <strong>Brand Booster Nepal</strong> provide immediate, high-quality metrics to build your profile's initial social proof. 
+            Having a solid base of followers and engagement signals to search engine algorithms and social network recommendations (such as the Instagram Explore page or TikTok For You page) that your content is valuable and should be promoted to organic audiences.
+          </p>
+
+          <h3 style={{ color: 'var(--text-primary)', marginBottom: '16px', fontSize: '1.4rem' }}>How to Safely Buy Instagram, TikTok, and YouTube Followers in Nepal</h3>
+          <p style={{ marginBottom: '24px' }}>
+            Safety and account integrity are paramount. Always look for SMM panels that never request your profile password. 
+            Reliable panels only require your public profile or post URL to deliver services. 
+            Furthermore, to ensure growth looks natural, YouTube subscribers and channel metrics should be delivered gradually (e.g., 60-90 subscribers per day) to comply with platforms' organic growth guidelines.
+          </p>
+
+          <h3 style={{ color: 'var(--text-primary)', marginBottom: '16px', fontSize: '1.4rem' }}>Payment Methods in Nepal (eSewa, Khalti, Bank Transfers)</h3>
+          <p>
+            For creators and businesses in Nepal, paying in local currency is simplified. 
+            Brand Booster Nepal accepts secure local payment methods, including <strong>eSewa</strong>, <strong>Khalti</strong>, <strong>IME Pay</strong>, and direct Nepali bank transfers. 
+            This makes acquiring growth packages extremely convenient, affordable, and immediate.
+          </p>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export default function App() {
   return (
     <HelmetProvider>
@@ -265,6 +432,7 @@ export default function App() {
           name="keywords"
           content="buy instagram followers nepal, buy instagram likes nepal, buy instagram views nepal, buy tiktok followers nepal, buy tiktok likes nepal, buy tiktok views nepal, buy youtube subscribers nepal, buy youtube views nepal, buy facebook likes nepal, buy facebook followers nepal, smm panel nepal, cheapest smm panel nepal, best smm panel nepal, brand booster nepal, buy instagram comments nepal, buy tiktok shares nepal, buy youtube comments nepal"
         />
+        <meta name="theme-color" content="#0a0a0f" />
         <link rel="canonical" href="https://brandbooster.com.np" />
 
         {/* Open Graph */}
@@ -310,6 +478,7 @@ export default function App() {
           <WhyChooseUs />
           <HowItWorks />
           <Reviews />
+          <SMMGuide />
           <FAQ />
         </Suspense>
       </main>

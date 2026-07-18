@@ -24,7 +24,7 @@ export default function Hero3D() {
 
   useEffect(() => {
     // Check if the visitor is a search bot or PageSpeed/Lighthouse analyzer
-    const isBot = /Lighthouse|Chrome-Lighthouse|Googlebot|bingbot|yandex|baiduspider/i.test(navigator.userAgent);
+    const isBot = /Lighthouse|Chrome-Lighthouse|Googlebot|bingbot|yandex|baiduspider|GPTBot|ClaudeBot|PerplexityBot|applebot|twitterbot|facebookexternalhit|ia_archiver/i.test(navigator.userAgent);
     if (isBot) {
       setShow3D(false);
       return;
