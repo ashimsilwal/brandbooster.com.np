@@ -121,6 +121,7 @@ const structuredData = {
       description: 'Buy active, high-quality Instagram followers in Nepal. Real looking profiles with lifetime refills and instant processing starting from Rs. 78.63.',
       brand: {
         '@type': 'Brand',
+        '@id': 'https://brandbooster.com.np/#organization',
         name: 'Brand Booster Nepal'
       },
       offers: {
@@ -147,6 +148,7 @@ const structuredData = {
       description: 'Buy fast TikTok views in Nepal. Increase video visibility instantly starting from Rs. 50 per 1,000 views.',
       brand: {
         '@type': 'Brand',
+        '@id': 'https://brandbooster.com.np/#organization',
         name: 'Brand Booster Nepal'
       },
       offers: {
@@ -173,6 +175,7 @@ const structuredData = {
       description: 'Grow your YouTube channel with non-drop, organic subscribers with lifetime refills in Nepal. Prices start from Rs. 2671.48.',
       brand: {
         '@type': 'Brand',
+        '@id': 'https://brandbooster.com.np/#organization',
         name: 'Brand Booster Nepal'
       },
       offers: {
@@ -199,6 +202,7 @@ const structuredData = {
       description: 'Boost your business page authority with organic Facebook Page Likes in Nepal starting from Rs. 350.',
       brand: {
         '@type': 'Brand',
+        '@id': 'https://brandbooster.com.np/#organization',
         name: 'Brand Booster Nepal'
       },
       offers: {
