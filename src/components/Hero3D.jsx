@@ -23,11 +23,24 @@ export default function Hero3D() {
   const [show3D, setShow3D] = useState(false);
 
   useEffect(() => {
-    // Only show 3D on screens wider than 480px for performance
-    const checkWidth = () => setShow3D(window.innerWidth > 480);
+    let timer;
+    const checkWidth = () => {
+      clearTimeout(timer);
+      if (window.innerWidth > 480) {
+        // Defer 3D canvas loading by 2 seconds to keep initial main-thread completely free
+        timer = setTimeout(() => {
+          setShow3D(true);
+        }, 2000);
+      } else {
+        setShow3D(false);
+      }
+    };
     checkWidth();
     window.addEventListener('resize', checkWidth);
-    return () => window.removeEventListener('resize', checkWidth);
+    return () => {
+      window.removeEventListener('resize', checkWidth);
+      clearTimeout(timer);
+    };
   }, []);
 
   return (
